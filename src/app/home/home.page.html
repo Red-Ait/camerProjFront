@@ -2,13 +2,26 @@
   <ion-toolbar>
     <ion-title>
       Ionic Blank
+        <ion-button>
+            <ion-icon name="settings"></ion-icon>
+        </ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-button (click)="openCam()" >Open Camera</ion-button>
+    <div style="margin: 10px;">
+        <input type="file" (change)="selectFile($event)" accept="image/*" capture="camera"  class="fileInput"/>
+        <label  icon-only ion-button>
+            <b style="padding: 5px; border: 1px solid black; margin: 10px">Gallery</b>
+        </label>
+
+    </div>
+    <ion-button (click)="voirPhotos()">Voir les photos</ion-button>
+  <div class="gallery-item" *ngFor="let im of desg">
+    <div class="content">
+      <img src="http://10.0.2.2:8088/downloadFile/{{im}}" style="border: 1px solid black;">
+    </div>
   </div>
 </ion-content>
