@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 import {UploadFileService} from '../../service/UploadFileService';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +18,16 @@ export class HomePage implements OnInit{
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
-  constructor(private camera: Camera, private uploadService: UploadFileService) { }
+  constructor(private camera: Camera, private uploadService: UploadFileService,
+              private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
-  }
 
+  }
+  toSetting() {
+    this.navCtrl.navigateForward('/setting');
+  }
   openCam() {
     const options: CameraOptions = {
       quality: 100,

@@ -13,11 +13,13 @@ import {UploadFileService} from '../service/UploadFileService';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
+import {IonicStorageModule} from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    IonicStorageModule.forRoot(),
     HttpModule,
     HttpClientModule,
     FormsModule,
